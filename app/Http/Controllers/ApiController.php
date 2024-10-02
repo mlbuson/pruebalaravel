@@ -1,12 +1,14 @@
-
 <?php
 
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Http\JsonResponse;
 
-class ApiController extends Controller {
-    public function getByCategory($category) {
+class ApiController extends Controller
+{
+    public function getByCategory($category): JsonResponse
+    {
         $category = Category::where('category', $category)->first();
 
         if (!$category) {
